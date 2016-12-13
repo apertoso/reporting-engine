@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="py3o_sample_report" model="ir.actions.report.xml">
+        <field name="name">Sample Report</field>
+        <field name="type">ir.actions.report.xml</field>
+        <field name="model">res.partner</field>
+        <field name="report_name">sample_report</field>
+        <field name="report_type">py3o</field>
+
+        <field name="py3o_filetype">odt</field>
+        <field name="py3o_is_local_fusion" eval="1"/>
+        <field name="py3o_filetype">odt</field>
+        <field name="module">report_py3o_sample</field>
+        <field name="py3o_template_fallback">report/template.odt</field>
+    </record>
+
+    <record id="res_partner_sample_report_py3o_print_action" model="ir.values">
+        <field name="key" eval="'action'"/>
+        <field name="key2" eval="'client_print_multi'"/>
+        <field name="model">res.partner</field>
+        <field name="name">Sample Report</field>
+        <field name="value"
+               eval="'ir.actions.report.xml,'+str(py3o_sample_report)"/>
+    </record>
+
+</odoo>
